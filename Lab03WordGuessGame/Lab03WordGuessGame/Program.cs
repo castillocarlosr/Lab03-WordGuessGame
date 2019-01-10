@@ -36,7 +36,11 @@ namespace Lab03WordGuessGame
         {
             try
             {
+                string[] linesInFile = File.ReadAllLines(pathInisde);
+                for (int i = 0; i < linesInFile.Length; i++)
+                {
 
+                }
             }
             catch (Exception)
             {
