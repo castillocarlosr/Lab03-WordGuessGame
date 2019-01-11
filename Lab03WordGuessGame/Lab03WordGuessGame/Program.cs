@@ -7,11 +7,18 @@ namespace Lab03WordGuessGame
     {
         static void Main(string[] args)
         {
-            //This bring up the word file to where the program.cs is.
+            //Carlos C. 01-04-2019
+            //This moves up the word file to where the program.cs file is at so it's easy to find.
             string path = "../../../wordFile.txt";
             CreateFile(path);
         }
 
+        /// <summary>
+        /// Example made today in class
+        /// create reates a  file txt in folder
+        /// </summary>
+        /// <param name="pathInside">file path</param>
+        /// <return>void</return>
         public static void CreateFile(string pathInside)
         {
             try
