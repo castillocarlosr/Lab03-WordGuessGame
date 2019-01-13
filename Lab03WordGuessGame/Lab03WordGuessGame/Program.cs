@@ -12,10 +12,41 @@ namespace Lab03WordGuessGame
             //Carlos C. 01-11-2019
             //This moves up the word file to where the program.cs file is at so it's easy to find.
             //string path = "../../../wordFile.txt";
-            //CreateFile(path);
-            ReadFile(path);
-            Console.WriteLine(path);
-            Console.ReadLine();
+            CreateFile(path);
+            WordGame(path);
+        }
+
+        public static void WordGame(string pathInside)
+        {
+            Console.WriteLine("Welcome to the wonderful Guessing Word Game!");;
+            Console.WriteLine("1) Start Game");
+            Console.WriteLine("2) Word List");
+            Console.WriteLine("3) Add Word");
+            Console.WriteLine("4) Delete Word");
+            Console.WriteLine("5) Exit");
+
+            string inputSelection = Console.ReadLine();
+            switch (inputSelection)
+            {
+                case 1:
+                    StartGame();
+                    break;
+                case 2:
+                    WordList();
+                    break;
+                case 3:
+                    AddWord();
+                    break;
+                case 4:
+                    DeleteWord();
+                    break;
+
+                default:
+                    Console.WriteLine("That is not a valid choice.  Please select 1,2,3 or 4.");
+                    WordGame();
+                    break;
+                    //return null;
+            }
         }
 
         /// <summary>
@@ -30,7 +61,12 @@ namespace Lab03WordGuessGame
             {
                 using(StreamWriter newFileWords = new StreamWriter(pathInside))
                 {
-                    newFileWords.WriteLine("Carlos test is here again 3");
+                    //newFileWords.WriteLine("Carlos test is here again 3");
+                    string[] starterWords = new string[] { "cat", "code", "computer", "mouse", "pizza", "dog" };
+                    for (int i = 0; i < starterWords.Length; i++)
+                    {
+                        newFileWords.Write(i);
+                    }
                 }
             }
             catch(IOException eIO)
@@ -39,6 +75,7 @@ namespace Lab03WordGuessGame
             }
             catch (Exception eAll)
             {
+                Console.WriteLine("General error");
                 Console.WriteLine(eAll.Message);
                 throw;
             }
@@ -58,20 +95,34 @@ namespace Lab03WordGuessGame
                     Console.WriteLine(linesInFile);
                 }
             }
+            catch (Exception errorRead)
+            {
+                Console.WriteLine(errorRead.Message);
+                throw;
+            }
+        }
+
+        public static string[] AddSingleWord(string pathInside, string theWord)
+        {
+            try
+            {
+                using (StreamWriter newWord = File.AppendText(path))
+                {
+                    newWord.WriteLine(theWord);
+                    Console.WriteLine($"{theWord} :has been added.");
+                }
+            }
             catch (Exception)
             {
 
                 throw;
             }
-        }
 
-        public static string[] GetSingleWord()
-        {
-            string[] allWordsInFile;
-            string answer = "testcarlos";
+            //string[] allWordsInFile;
+            //string answer = "testcarlos";
 
-            allWordsInFile = File.ReadAllLines(path);
-            return allWordsInFile;
+            //allWordsInFile = File.ReadAllLines(path);
+            //return allWordsInFile;
         }
 
         public void AppendFile(string pathInside)
