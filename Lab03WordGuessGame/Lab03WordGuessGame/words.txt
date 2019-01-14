@@ -1,0 +1,7 @@
+cat
+dog
+code
+pizza
+mouse
+thunder
+computer
