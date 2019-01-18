@@ -1,5 +1,5 @@
 
-# Lab04-TicTacToe-
+# Lab03-Word Guess Game
 Code 401 started Jan 11, 2019
 
 ## Purpose:
